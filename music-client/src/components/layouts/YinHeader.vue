@@ -32,7 +32,7 @@
       <div id='user' ref='user'>
         <img :src='attachImageUrl(userPic)' alt=''>
       </div>
-      <ul class='menu' ref='menu' :class='showMenu ? "show" : ""'>
+      <ul class='menu'  ref='menu' :class='showMenu ? "show" : ""'>
         <li v-for='(item, index) in menuList' :key='index' @click='goMenuList(item.path)'>{{ item.name }}</li>
       </ul>
     </div>

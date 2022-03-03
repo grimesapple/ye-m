@@ -1,0 +1,33 @@
+2022-02-26 10:45:03 INFO [org.hibernate.validator.internal.util.Version]: HV000001: Hibernate Validator 6.0.13.Final
+2022-02-26 10:45:03 INFO [com.example.yin.YinMusicApplication]: Starting YinMusicApplication on DESKTOP-CLFJHSM with PID 26992 (D:\01_yr\01_workspace\ye-m\music-server\target\classes started by jxthx in D:\01_yr\01_workspace\ye-m\music-server)
+2022-02-26 10:45:03 INFO [com.example.yin.YinMusicApplication]: No active profile set, falling back to default profiles: default
+2022-02-26 10:45:03 INFO [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor]: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-02-26 10:45:03 INFO [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor]: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-02-26 10:45:04 INFO [org.springframework.boot.web.embedded.tomcat.TomcatWebServer]: Tomcat initialized with port(s): 8888 (http)
+2022-02-26 10:45:04 INFO [org.springframework.web.context.ContextLoader]: Root WebApplicationContext: initialization completed in 1256 ms
+2022-02-26 10:45:05 INFO [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor]: Initializing ExecutorService 'applicationTaskExecutor'
+2022-02-26 10:45:05 INFO [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer]: LiveReload server is running on port 35729
+2022-02-26 10:45:05 INFO [org.springframework.boot.web.embedded.tomcat.TomcatWebServer]: Tomcat started on port(s): 8888 (http) with context path ''
+2022-02-26 10:45:05 INFO [com.example.yin.YinMusicApplication]: Started YinMusicApplication in 1.966 seconds (JVM running for 2.852)
+2022-02-26 10:46:58 INFO [org.springframework.web.servlet.DispatcherServlet]: Initializing Servlet 'dispatcherServlet'
+2022-02-26 10:46:58 INFO [org.springframework.web.servlet.DispatcherServlet]: Completed initialization in 4 ms
+2022-02-26 10:46:58 INFO [com.zaxxer.hikari.HikariDataSource]: HikariPool-1 - Starting...
+2022-02-26 10:46:59 INFO [com.zaxxer.hikari.HikariDataSource]: HikariPool-1 - Start completed.
+2022-02-26 10:56:51 ERROR [com.example.yin.service.impl.RankListServiceImpl]: 测试一下log
+2022-02-26 10:59:09 ERROR [com.example.yin.service.impl.RankListServiceImpl]: 测试一下log
+2022-02-26 10:59:18 ERROR [com.example.yin.service.impl.RankListServiceImpl]: 测试一下log
+2022-02-26 17:51:22 INFO [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor]: Shutting down ExecutorService 'applicationTaskExecutor'
+2022-02-26 17:51:22 INFO [com.zaxxer.hikari.HikariDataSource]: HikariPool-1 - Shutdown initiated...
+2022-02-26 17:51:22 INFO [com.zaxxer.hikari.HikariDataSource]: HikariPool-1 - Shutdown completed.
+2022-02-26 17:51:27 INFO [org.hibernate.validator.internal.util.Version]: HV000001: Hibernate Validator 6.0.13.Final
+2022-02-26 17:51:27 INFO [com.example.yin.YinMusicApplication]: Starting YinMusicApplication on DESKTOP-CLFJHSM with PID 32288 (D:\01_yr\01_workspace\ye-m\music-server\target\classes started by jxthx in D:\01_yr\01_workspace\ye-m\music-server)
+2022-02-26 17:51:27 INFO [com.example.yin.YinMusicApplication]: No active profile set, falling back to default profiles: default
+2022-02-26 17:51:27 INFO [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor]: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-02-26 17:51:27 INFO [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor]: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-02-26 17:51:29 INFO [org.springframework.boot.web.embedded.tomcat.TomcatWebServer]: Tomcat initialized with port(s): 8888 (http)
+2022-02-26 17:51:29 INFO [org.springframework.web.context.ContextLoader]: Root WebApplicationContext: initialization completed in 1751 ms
+2022-02-26 17:51:29 INFO [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor]: Initializing ExecutorService 'applicationTaskExecutor'
+2022-02-26 17:51:29 INFO [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer]: LiveReload server is running on port 35729
+2022-02-26 17:51:29 INFO [org.springframework.boot.web.embedded.tomcat.TomcatWebServer]: Tomcat started on port(s): 8888 (http) with context path ''
+2022-02-26 17:51:29 INFO [com.example.yin.YinMusicApplication]: Started YinMusicApplication in 2.799 seconds (JVM running for 4.408)
+2022-02-26 18:11:30 INFO [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor]: Shutting down ExecutorService 'applicationTaskExecutor'

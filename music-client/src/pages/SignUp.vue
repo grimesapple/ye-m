@@ -5,7 +5,8 @@
       <div class='sign-up-head'>
         <span>用户注册</span>
       </div>
-      <el-form :model='registerForm' status-icon :rules='rules' ref='registerForm' label-width='70px' class='demo-ruleForm'>
+      <el-form :model='registerForm' status-icon :rules='rules' ref='registerForm' label-width='70px'
+        class='demo-ruleForm'>
         <el-form-item prop='username' label='用户名'>
           <el-input v-model='registerForm.username' placeholder='用户名'></el-input>
         </el-form-item>
@@ -26,7 +27,8 @@
           <el-input v-model='registerForm.email' placeholder='邮箱'></el-input>
         </el-form-item>
         <el-form-item prop='birth' label='生日'>
-          <el-date-picker type='date' placeholder='选择日期' v-model='registerForm.birth' style='width: 100%;'></el-date-picker>
+          <el-date-picker type='date' placeholder='选择日期' v-model='registerForm.birth' style='width: 100%;'>
+          </el-date-picker>
         </el-form-item>
         <el-form-item prop='introduction' label='签名'>
           <el-input type='textarea' placeholder='签名' v-model='registerForm.introduction'></el-input>
@@ -46,78 +48,137 @@
 </template>
 
 <script>
-import mixin from '../mixins'
-import YinLoginLogo from '../components/layouts/YinLoginLogo'
-import {HttpManager} from '../api'
-import {getDateTime} from '../utils'
-import {RULES, AREA, SIGN_IN, NAV_NAME} from '../enums'
+  import mixin from '../mixins'
+  import YinLoginLogo from '../components/layouts/YinLoginLogo'
+  import {
+    HttpManager
+  } from '../api'
+  import {
+    getDateTime
+  } from '../utils'
+  import {
+    RULES,
+    AREA,
+    SIGN_IN,
+    NAV_NAME
+  } from '../enums'
 
-export default {
-  name: 'SignUp',
-  mixins: [mixin],
-  components: {
-    YinLoginLogo
-  },
-  data () {
-    return {
-      // 注册
-      registerForm: {
-        username: '',
-        password: '',
-        sex: '',
-        phoneNum: '',
-        email: '',
-        birth: '',
-        introduction: '',
-        location: ''
-      },
-      // 必填项校验规则
-      rules: RULES,
-      area: AREA,
-      defaultUserPic: '/img/user.jpg'
-    }
-  },
-  methods: {
-    handleSignUp () {
-      // TODO：这里需要在前端做必填项校验
-      const params = new URLSearchParams()
-      params.append('username', this.registerForm.username)
-      params.append('password', this.registerForm.password)
-      params.append('sex', this.registerForm.sex)
-      params.append('phone_num', this.registerForm.phoneNum)
-      params.append('email', this.registerForm.email)
-      params.append('birth', getDateTime(this.registerForm.birth))
-      params.append('introduction', this.registerForm.introduction)
-      params.append('location', this.registerForm.location)
-      params.append('avator', this.defaultUserPic)
-      HttpManager.SignUp(params)
-        .then(res => {
-          if (res.code != null) {
-            this.$notify({
-              title: res.msg,
-              type: res.type
-            })
-            setTimeout(() => {
-              if (res.success) {
-                this.routerManager(SIGN_IN, {path: SIGN_IN})
-                this.changeIndex(NAV_NAME.SIGN_IN)
-              }
-            }, 2000)
+  export default {
+    name: 'SignUp',
+    mixins: [mixin],
+    components: {
+      YinLoginLogo
+    },
+    data() {
+      return {
+        // 注册
+        registerForm: {
+          username: '',
+          password: '',
+          sex: '',
+          phoneNum: '',
+          email: '',
+          birth: '',
+          introduction: '',
+          location: ''
+        },
+        // 必填项校验规则
+        rules: RULES,
+        // rules: {
+        //   username: [{
+        //       required: true,
+        //       message: '请输入用户名',
+        //       trigger: 'blur'
+        //     },
+        //     {
+        //       min: 3,
+        //       max: 5,
+        //       message: '长度在 3 到 5 个字符',
+        //       trigger: 'blur'
+        //     }
+        //   ],
+        //   password: [{
+        //       required: true,
+        //       message: '请输入密码',
+        //       trigger: 'blur'
+        //     },
+        //     {
+        //       min: 3,
+        //       max: 5,
+        //       message: '长度在 3 到 5 个字符',
+        //       trigger: 'blur'
+        //     }
+        //   ],
+        //   birth: [{
+        //     type: 'date',
+        //     required: true,
+        //     message: '请选择日期',
+        //     trigger: 'change'
+        //   }]
+        // },
+        area: AREA,
+        defaultUserPic: '/img/user.jpg'
+      }
+    },
+    methods: {
+      handleSignUp() {
+        // TODO：这里需要在前端做必填项校验
+
+
+        this.$refs["registerForm"].validate((valid, msg) => {
+          if (valid) {
+            const params = new URLSearchParams()
+            params.append('username', this.registerForm.username)
+            params.append('password', this.registerForm.password)
+            params.append('sex', this.registerForm.sex)
+            params.append('phone_num', this.registerForm.phoneNum)
+            params.append('email', this.registerForm.email)
+            params.append('birth', getDateTime(this.registerForm.birth))
+            params.append('introduction', this.registerForm.introduction)
+            params.append('location', this.registerForm.location)
+            params.append('avator', this.defaultUserPic)
+            
+            HttpManager.SignUp(params)
+              .then(res => {
+                if (res.code != null) {
+                  this.$notify({
+                    title: res.msg,
+                    type: res.type
+                  })
+                  setTimeout(() => {
+                    if (res.success) {
+                      this.routerManager(SIGN_IN, {
+                        path: SIGN_IN
+                      })
+                      this.changeIndex(NAV_NAME.SIGN_IN)
+                    }
+                  }, 2000)
+                } else {
+                  this.$notify({
+                    title: '注册失败',
+                    type: 'error'
+                  })
+                }
+              })
+              .catch(err => {
+                console.error(err)
+              })
           } else {
-            this.$notify({
-              title: '注册失败',
-              type: 'error'
-            })
+            for (let key in msg) {
+              this.$notify({
+                title: msg[key][0].message
+              })
+              return false;
+            }
           }
-        })
-        .catch(err => {
-          console.error(err)
-        })
+        });
+
+
+      }
     }
   }
-}
 </script>
 
 <style lang='scss' scoped>
-@import '@/assets/css/sign-up.scss';
+  @import '@/assets/css/sign-up.scss';
 </style>
